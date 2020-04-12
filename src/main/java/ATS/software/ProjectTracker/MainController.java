@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
   
 @Controller 
-@RequestMapping(path="/demo")
+@RequestMapping(path="/admin")
 public class MainController {
   @Autowired
   private UserRepository userRepository;
@@ -33,7 +33,7 @@ public class MainController {
 	  }
 
 
-  @GetMapping(path="/all")
+  @GetMapping(path="/allUsers")
   public @ResponseBody Iterable<User> getAllUsers() {
     // This returns a JSON or XML with the users
     return userRepository.findAll();
