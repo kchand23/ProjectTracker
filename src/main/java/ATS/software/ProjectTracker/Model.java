@@ -7,6 +7,7 @@ import javax.persistence.Id;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class Model {
+  @Id @GeneratedValue long id;
   private String name;
 
   private String projectId;

@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class MainController {
   @Autowired
   private UserRepository userRepository;
+  @Autowired
   private ProjectRepository projectRepository;
+  @Autowired
+  private ModelRepository modelRepository; 
   
   //Give a form to add user details. 
   @GetMapping(path = "/addUser")
@@ -28,7 +31,7 @@ public class MainController {
   //After submitted button is pressed on the user form. 
   @PostMapping(path = "/addUser")
   public @ResponseBody String userFormSubmitted (@ModelAttribute User user) {
-	    userRepository.save(user);
+	    userRepository.save(user); 
 	    return "Saved";
 	  }
 
@@ -62,5 +65,12 @@ public class MainController {
     // This returns a JSON or XML with the users
     return projectRepository.findAll();
   }
+  
+  @GetMapping(path="/addModel")
+  public @ResponseBody Iterable<Project> addModel() {
+    // This returns a JSON or XML with the users
+    return projectRepository.findAll();
+  }
+  
   
 }
