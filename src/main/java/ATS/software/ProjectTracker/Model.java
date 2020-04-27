@@ -18,6 +18,22 @@ public class Model {
   @OneToMany(mappedBy = "model")
   private Set<Update> updates;
 
+	public long getId() {
+	return id;
+}
+
+public void setId(long id) {
+	this.id = id;
+}
+
+public Set<Update> getUpdates() {
+	return updates;
+}
+
+public void setUpdates(Set<Update> updates) {
+	this.updates = updates;
+}
+
 	public String getName() {
 		return name;
 	}

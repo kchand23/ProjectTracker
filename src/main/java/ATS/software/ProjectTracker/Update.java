@@ -1,6 +1,7 @@
 package ATS.software.ProjectTracker;
 
 import javax.persistence.CascadeType;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,9 +13,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Update {
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.AUTO)
-	 private Long id;
+	 @EmbeddedId private UpdateId id;
 	 
 	 @ManyToOne @MapsId("userId")
 	 private User user;
@@ -23,11 +22,9 @@ public class Update {
 	 @ManyToOne @MapsId("modelId")
 	 private Model model;
 	 
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
+	 
+	public Update() {
+		id = new UpdateId();
 	}
 	public User getUser() {
 		return user;
@@ -49,3 +46,5 @@ public class Update {
 	}
 	 
 }
+
+
