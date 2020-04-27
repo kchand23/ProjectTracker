@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity // This tells Hibernate to make a table out of this class
+@Entity
 public class Model {
   @Id @GeneratedValue long id;
   private String name;
@@ -28,6 +28,4 @@ public class Model {
 	public void setProjectId(String projectId) {
 		this.projectId = projectId;
 	}
-
-  
 }

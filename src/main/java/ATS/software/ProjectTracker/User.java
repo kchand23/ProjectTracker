@@ -1,9 +1,12 @@
 package ATS.software.ProjectTracker;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
@@ -22,6 +25,9 @@ public class User {
 	this.initials = initials;
   }
 
+  
+  @OneToMany(mappedBy = "user")
+  private Set<Update> updates;
 
   public String getName() {
     return name;

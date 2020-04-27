@@ -1,9 +1,12 @@
 package ATS.software.ProjectTracker;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class Project {
@@ -14,6 +17,17 @@ public class Project {
 
   private java.sql.Date startDate;
   private java.sql.Date endDate;
+  
+  @OneToMany(mappedBy = "project")
+  private Set<Update> updates;
+  
+  
+public Set<Update> getUpdates() {
+	return updates;
+}
+public void setUpdates(Set<Update> updates) {
+	this.updates = updates;
+}
 public String getName() {
 	return name;
 }
@@ -38,7 +52,5 @@ public java.sql.Date getEndDate() {
 public void setEndDate(java.sql.Date endDate) {
 	this.endDate = endDate;
 }
-
- 
   
 }
