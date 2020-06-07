@@ -1,5 +1,7 @@
 package ATS.software.ProjectTracker;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,5 +11,9 @@ import ATS.software.ProjectTracker.User;;
 // CRUD refers Create, Read, Update, Delete
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
-
+	
+	@Override
+    List<User> findAll();
+	
+	
 }

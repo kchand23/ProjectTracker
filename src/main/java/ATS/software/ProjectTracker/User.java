@@ -24,7 +24,7 @@ public class User {
   public void setInitials(String initials) {
 	this.initials = initials;
   }
-
+  
   
   @OneToMany(mappedBy = "user")
   private Set<Update> updates;
